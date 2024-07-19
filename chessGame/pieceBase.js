@@ -7,6 +7,5 @@ class PieceBase {
     this.color = color;
     this.position = position;
   }
-  isPossibleMove() {}
-  move(piece, newPosition) {}
+  findPossibleMoves() {}
 }
