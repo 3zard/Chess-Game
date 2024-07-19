@@ -1,0 +1,17 @@
+@startuml makeMove
+start
+if (startCell has what?) then (nothing)
+    :can't move;
+(piece) elseif (Current player owns that piece?) then (no)
+    :can't move;
+(yes) elseif (The move is valid?) then (no)
+    :can't move;
+(yes) elseif (endCell has what?) then (nothing)
+    :move;
+(piece) elseif (Current player owns that piece?) then (yes)
+    :can't move;
+else (no)
+    :move;
+endif
+stop
+@enduml
