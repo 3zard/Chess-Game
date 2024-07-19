@@ -1,0 +1,22 @@
+@startuml useCaseDiagram
+left to right direction
+actor Game
+package ActionGame {
+    usecase MakeMove as makeMove
+    usecase SwitchTurn as switchTurn
+    usecase IsCheck as isCheck
+    usecase IsCheckMate as isCheckMate
+    usecase IsStealMate as isStealMate
+    usecase IsDraw as isDraw
+    usecase IsEndGame as isEndGame
+    usecase UndoMove as undoMove
+}
+Game --> makeMove
+Game --> switchTurn
+Game --> isCheck
+Game --> isCheckMate
+Game --> isStealMate
+Game --> isDraw
+Game --> isEndGame
+Game --> undoMove
+@enduml
