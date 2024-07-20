@@ -1,0 +1,9 @@
+@startuml isCheck
+start
+if (Is the player's king checked?) then (yes)
+    :limit move;
+else (no)
+    :move normally;
+endif
+stop
+@enduml

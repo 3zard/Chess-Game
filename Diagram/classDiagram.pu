@@ -1,0 +1,25 @@
+@startuml classDiagram
+class Cell {
+    row
+    column
+    piece
+    getRow()
+    getColumn()
+    setRow()
+    setColumn()
+}
+class Game {
+    player
+    board
+    currentTurn
+    endGame
+    listMoved
+    makeMove()
+    switchTurn()
+    isCheck()
+    isCheckMate()
+    isStealMate()
+    isDraw()
+    isEndGame()
+}
+@enduml

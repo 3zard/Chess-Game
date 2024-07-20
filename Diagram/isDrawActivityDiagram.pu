@@ -1,0 +1,11 @@
+@startuml isCheckMate
+start
+if (One player request a draw and the other accept that) then (yes)
+    :draw;
+(no) elseif (isStealMate) then (yes)
+    :draw;
+else (no)
+    :not draw;
+endif
+stop
+@enduml

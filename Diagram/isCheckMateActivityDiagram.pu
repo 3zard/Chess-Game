@@ -1,0 +1,9 @@
+@startuml isCheckMate
+start
+if (The Player has no valid move and the king is checked) then (yes)
+    :checkmate;
+else (no)
+    :not checkmate;
+endif
+stop
+@enduml
