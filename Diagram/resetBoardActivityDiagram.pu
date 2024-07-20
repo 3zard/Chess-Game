@@ -1,0 +1,5 @@
+@startuml resetBoard
+start
+:initialize new Board;
+stop
+@enduml

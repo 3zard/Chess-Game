@@ -1,12 +1,9 @@
 @startuml classDiagram
-class Cell {
-    row
-    column
-    piece
-    getRow()
-    getColumn()
-    setRow()
-    setColumn()
+class Board {
+    cell
+    resetBoard()
+    getCell()
+    setCell()
 }
 class Game {
     player

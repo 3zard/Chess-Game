@@ -19,4 +19,13 @@ Game --> isStealMate
 Game --> isDraw
 Game --> isEndGame
 Game --> undoMove
+actor Board
+package ActionBoard {
+    usecase ResetBoard as resetBoard
+    usecase GetCell as getCell
+    usecase SetCell as setCell
+}
+Board --> resetBoard
+Board --> getCell
+Board --> setCell
 @enduml
