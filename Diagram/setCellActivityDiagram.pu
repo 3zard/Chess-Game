@@ -1,0 +1,6 @@
+@startuml setCell
+start
+:input row, column, object(piece or null);
+:set the cell to have that object;
+stop
+@enduml
