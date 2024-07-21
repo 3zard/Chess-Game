@@ -1,31 +1,64 @@
 @startuml useCaseDiagram
 left to right direction
-actor Game
-package ActionGame {
-    usecase MakeMove as makeMove
-    usecase SwitchTurn as switchTurn
-    usecase IsCheck as isCheck
-    usecase IsCheckMate as isCheckMate
-    usecase IsStealMate as isStealMate
-    usecase IsDraw as isDraw
-    usecase IsEndGame as isEndGame
-    usecase UndoMove as undoMove
+actor Player
+actor System
+
+rectangle "System Boundary" {
+
+    usecase "Move Piece"as movePiece
+    usecase "Chat" as chat
+    usecase "Make Draw" as makeDraw
+    usecase "Play Game" as playGame
+    usecase "Create Room" as createRoom
+    usecase "Join Room" as joinRoom
+    usecase "Resign" as resign
+    usecase "Count Time" as timeOut
+    usecase "Save History Move" as saveHistoryMove
+    usecase "Validate Move" as validateMove
+    usecase "Create Game" as createGame
+    usecase "Show Result" as showResult
+
 }
-Game --> makeMove
-Game --> switchTurn
-Game --> isCheck
-Game --> isCheckMate
-Game --> isStealMate
-Game --> isDraw
-Game --> isEndGame
-Game --> undoMove
-actor Board
-package ActionBoard {
-    usecase ResetBoard as resetBoard
-    usecase GetCell as getCell
-    usecase SetCell as setCell
-}
-Board --> resetBoard
-Board --> getCell
-Board --> setCell
-@enduml
+Player -down-> movePiece
+Player -down-> joinRoom
+Player -down-> chat
+Player -down-> playGame
+Player -down-> createRoom
+Player -down-> resign
+Player -down-> makeDraw
+    movePiece-[hidden]-(validateMove)
+    movePiece-[hidden]-(saveHistoryMove)
+    playGame-[hidden]-(showResult)
+    makeDraw-[hidden]-(showResult)
+    makeDraw-[hidden]-(timeOut)
+
+    resign-[hidden]-(showResult)
+
+    playGame-[hidden]-(timeOut)
+    chat-[hidden]-(createGame)
+    createRoom-[hidden]-(timeOut)
+    joinRoom-[hidden]-(timeOut)
+
+    playGame-[hidden]-(createGame)
+
+
+System -up-> createGame
+System -up-> timeOut
+System -up-> saveHistoryMove
+System -up-> validateMove
+System -up-> showResult
+movePiece .> validateMove : include
+
+chat <. createGame : include
+createRoom <. createGame : include
+createRoom .> joinRoom : extend
+playGame <. createGame : extend
+timeOut .> showResult : extend
+makeDraw .> showResult : extend
+resign .> showResult : extend
+movePiece .> saveHistoryMove: include
+playGame .> timeOut :include
+joinRoom .> playGame : extend
+createRoom .> playGame : extend
+
+@endum
