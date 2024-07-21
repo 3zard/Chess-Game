@@ -20,24 +20,17 @@ class Game {
     isEndGame()
 }
 
-class Position {
-    -column: String
-    -row: int
-    
-    +Position(column: String, row: int)
-    +getColumn(): String
-    +getRow(): int
-}
-
 class Cell {
     -piece: Piece
-    -position: Position
-    
-    +Cell(piece: Piece, position: Position)
+    -column: String 
+    -row: int
+
+    +Cell(piece: Piece, row: int, column: String)
     +getPiece(): Piece
     +setPiece(piece: Piece): void
     +isOccupied(): boolean
-    +getPosition(): Position
+    +getRow(): int
+    +getColumn() : String
 }
 abstract class PlayerBase {
     -name: String
@@ -53,11 +46,30 @@ abstract class PlayerBase {
     +makeDraw(): void
     +sendMessage(message: String): void
 }
+
+abstract class PieceBase {
+    -name: String
+    -whitePiece: boolean
+
+    +findValidMove(cell: Cell): void
+    +isWhitePiece(): Boolean
+}
+
+class Move {
+    -playerMakeMove : Player
+    -startCell : Cell 
+    -endCell : Cell
+
+    +isValidMove(): Boolean
+}
+
 PlayerBase --> Game
 Cell --> Board
-Cell --> Position
-Cell -->Piece
+Cell -->PieceBase
 Board --> Game
 Game --> GameStatus
+Game --> Move
 
 @enduml
+
+
