@@ -19,4 +19,45 @@ class Game {
     isDraw()
     isEndGame()
 }
+
+class Position {
+    -column: String
+    -row: int
+    
+    +Position(column: String, row: int)
+    +getColumn(): String
+    +getRow(): int
+}
+
+class Cell {
+    -piece: Piece
+    -position: Position
+    
+    +Cell(piece: Piece, position: Position)
+    +getPiece(): Piece
+    +setPiece(piece: Piece): void
+    +isOccupied(): boolean
+    +getPosition(): Position
+}
+abstract class PlayerBase {
+    -name: String
+    -whiteSide: Boolean
+    -game: Game
+    
+    +PlayerBase(name: String, whiteSide: Boolean)
+    +isWhiteSide(): Boolean
+    +joinGame(game: Game): void
+    +createRoom(): Game
+    +startGame(): void
+    +resign(): void
+    +makeDraw(): void
+    +sendMessage(message: String): void
+}
+PlayerBase --> Game
+Cell --> Board
+Cell --> Position
+Cell -->Piece
+Board --> Game
+Game --> GameStatus
+
 @enduml
