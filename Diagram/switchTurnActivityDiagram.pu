@@ -1,9 +1,0 @@
-@startuml switchTurn
-start
-if (White side player just moved?) then (yes)
-    :switch turn to black side player;
-else (no)
-    :switch turn to white side player;
-endif
-stop
-@enduml

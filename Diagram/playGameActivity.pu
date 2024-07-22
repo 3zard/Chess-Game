@@ -1,0 +1,7 @@
+@startuml
+start
+:2 Player already  joins game;
+:Player press play game;
+:Game start;
+stop
+@enduml

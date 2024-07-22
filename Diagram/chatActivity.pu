@@ -1,0 +1,13 @@
+@startuml
+start
+:Player opens chat;
+:Player types message;
+:Player sends message;
+:System validates message;
+if (Valid message?) then (yes)
+    :Message sent to other player(s);
+else (no)
+    :Display error message;
+endif
+stop
+@enduml

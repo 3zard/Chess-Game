@@ -67,7 +67,6 @@ PlayerBase --> Game
 Cell --> Board
 Cell -->PieceBase
 Board --> Game
-Game --> GameStatus
 Game --> Move
 
 @enduml

@@ -1,0 +1,7 @@
+@startuml
+start
+:Game ends;
+:Determine result;
+:Display result to players;
+stop
+@enduml

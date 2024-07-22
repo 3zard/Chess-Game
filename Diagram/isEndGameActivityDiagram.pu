@@ -1,9 +1,0 @@
-@startuml isEndGame
-start
-if (isDraw or isCheckMate) then (yes)
-    :End Game;
-else (no)
-    :Continue;
-endif
-stop
-@enduml

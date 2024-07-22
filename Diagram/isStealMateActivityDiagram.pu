@@ -1,9 +1,0 @@
-@startuml isStealMate
-start
-if (The Player has no valid move and the king isn't checked) then (yes)
-    :stealmate;
-else (no)
-    :not stealmate;
-endif
-stop
-@enduml
