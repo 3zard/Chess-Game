@@ -1,23 +1,24 @@
 @startuml classDiagram
 class Board {
-    cell
-    resetBoard()
-    getCell()
-    setCell()
+    -cell: Cell
+    +initializeBoard(): Board
+    +resetBoard(): Board
+    +getCell(row: int, column: String): Cell
+    +setCell(piece: Piece, row: int, column: String): void
 }
 class Game {
-    player
-    board
-    currentTurn
-    endGame
-    listMoved
-    makeMove()
-    switchTurn()
-    isCheck()
-    isCheckMate()
-    isStealMate()
-    isDraw()
-    isEndGame()
+    -player: Player
+    -board: Board
+    -currentTurn: Player
+    -endGame: boolean
+    -listMoved: Move
+    +makeMove(player: Player, startCell: Cell, endCell: Cell): void
+    +switchTurn(currentTurn: Player): void
+    +isCheck(board: Board): boolean
+    +isCheckMate(board: Board): boolean
+    +isStealMate(board: Board): boolean
+    +isDraw(board: Board): boolean
+    +isEndGame(): boolean
 }
 
 class Cell {
