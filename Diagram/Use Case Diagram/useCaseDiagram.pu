@@ -12,7 +12,7 @@ rectangle "System Boundary" {
     usecase "Create Room" as createRoom
     usecase "Join Room" as joinRoom
     usecase "Resign" as resign
-    usecase "Count Time" as timeOut
+    usecase "Count Time" as timeOut 
     usecase "Save History Move" as saveHistoryMove
     usecase "Validate Move" as validateMove
     usecase "Create Game" as createGame

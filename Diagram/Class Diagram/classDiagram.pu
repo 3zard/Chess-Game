@@ -32,6 +32,7 @@ class Cell {
     +getRow(): int
     +getColumn() : String
 }
+
 abstract class PlayerBase {
     -name: String
     -whiteSide: Boolean
@@ -63,12 +64,54 @@ class Move {
     +isValidMove(): Boolean
 }
 
+class Pawn{
+    -name: String
+    -whitePiece: Boolean
+    +findValidMove(cell: Cell): void
+    +isWhitePiece(): boolean
+} 
+class Rook{
+    -name: String
+    -whitePiece: Boolean
+    +findValidMove(cell: Cell): void
+    +isWhitePiece(): boolean
+}
+class Knight{
+    -name: String
+    -whitePiece: Boolean
+    +findValidMove(cell: Cell): void
+    +isWhitePiece(): boolean
+}
+class Bishop{
+    -name: String
+    -whitePiece: Boolean
+    +findValidMove(cell: Cell): void
+    +isWhitePiece(): boolean
+}
+class Queen{
+    -name: String
+    -whitePiece: Boolean
+    +findValidMove(cell: Cell): void
+    +isWhitePiece(): boolean
+}
+class King{
+    -name: String
+    -whitePiece: Boolean
+    +findValidMove(cell: Cell): void
+    +isWhitePiece(): boolean
+}
+
 PlayerBase --> Game
 Cell --> Board
 Cell -->PieceBase
 Board --> Game
 Game --> Move
-
+PieceBase <|-- Pawn
+PieceBase <|-- Rook
+PieceBase <|-- Knight
+PieceBase <|-- Bishop
+PieceBase <|-- Queen
+PieceBase <|-- King
 @enduml
 
 
