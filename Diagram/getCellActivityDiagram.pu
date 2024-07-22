@@ -1,6 +1,0 @@
-@startuml getCell
-start
-:input row and column;
-:output cell;
-stop
-@enduml

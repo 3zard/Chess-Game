@@ -1,6 +1,0 @@
-@startuml undoMove
-start
-:reverse to the previous move;
-:switchTurn;
-stop
-@enduml

@@ -1,0 +1,14 @@
+@startuml
+start
+:Game starts;
+:Initialize timer;
+repeat
+    :Monitor player move time;
+    if (Time expires?) then (yes)
+        :End game;
+        :Show Result;
+        stop
+    endif
+repeat while (Game continues)
+stop
+@enduml

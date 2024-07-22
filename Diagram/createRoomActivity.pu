@@ -1,0 +1,14 @@
+@startuml
+start
+:Player chooses to create a room;
+:Notify player that room is created;
+:Player invite others player by link join;
+:Player waits for others to join;
+if (Room has 2 players?) then (yes)
+    :The creator click play game;
+    :Game start;
+else (no)
+    :Continue wait;
+endif
+stop
+@enduml

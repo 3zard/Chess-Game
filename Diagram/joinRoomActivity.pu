@@ -1,0 +1,9 @@
+@startuml
+start
+:Opponent receive link join from others player;
+:Opponent click link;
+:Join Room;
+:Notify room creator of new player;
+:Wait for game to start;
+stop
+@enduml
