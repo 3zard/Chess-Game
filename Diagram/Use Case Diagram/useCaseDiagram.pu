@@ -12,9 +12,8 @@ rectangle "System Boundary" {
     usecase "Request Endgame" as requestEndgame
     usecase "Play Game" as playGame
     usecase "Invite" as invite
-    usecase "Create Room" as createRoom
     usecase "Join Room" as joinRoom
-    usecase "Create Room" as createGame
+    usecase "Create Room" as createRoom
 }
 Guest --> signUp
 Guest --> login
@@ -26,5 +25,4 @@ Player --> playGame
 Player --> invite
 Player --> createRoom
 Player --> joinRoom
-Player --> createGame
 @endum
