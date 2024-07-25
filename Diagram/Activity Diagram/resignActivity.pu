@@ -1,8 +1,0 @@
-@startuml
-start
-:Player decides to resign;
-:Confirm resignation;
-:End game;
-:Show Result;
-stop
-@enduml

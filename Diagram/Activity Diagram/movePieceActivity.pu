@@ -1,0 +1,26 @@
+@startuml
+|Player|
+start
+:Select a piece;
+
+|Game|
+:Show valid moves;
+
+|Player|
+:Select end cell;
+
+|Game|
+if (Is valid move?) then (Yes)
+    :Move piece;
+    :Save history move;
+    :Check end game;
+    if (Is end game?) then (Yes)
+        :Show result;
+    else (No)
+        :Switch Turn;
+    endif
+else (No)
+    :Don't move;
+endif
+stop
+@enduml

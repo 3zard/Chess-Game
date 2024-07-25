@@ -1,0 +1,21 @@
+@startuml
+|User|
+start
+:Enter login information;
+:Click "Log In" button;
+-> System;
+
+|System|
+if (Information valid?) then (Yes)
+    :Verify login information;
+    if (Information correct?) then (Yes)
+        :Grant access;
+        :Redirect to homepage;
+    else (No)
+        :Display login error message;
+    endif
+else (No)
+    :Display error message;
+endif
+stop
+@enduml

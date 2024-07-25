@@ -1,7 +1,9 @@
 @startuml
+|Player|
 start
 :2 Player already  joins game;
-:Player press play game;
+:2 Player are ready;
+|System|
 :Game start;
 stop
 @enduml

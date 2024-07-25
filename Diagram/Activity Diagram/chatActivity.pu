@@ -1,8 +1,10 @@
 @startuml
+|Player|
 start
 :Player opens chat;
 :Player types message;
 :Player sends message;
+|Game|
 :System validates message;
 if (Valid message?) then (yes)
     :Message sent to other player(s);
