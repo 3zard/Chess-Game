@@ -1,17 +1,20 @@
 @startuml classDiagram
 class Board {
-    -cell: Cell
+    -cell: []
     +initializeBoard(): Board
     +resetBoard(): Board
     +getCell(row: int, column: String): Cell
     +setCell(piece: Piece, row: int, column: String): void
 }
+
+
 class Game {
-    -player: Player
+    -player: []
     -board: Board
-    -currentTurn: Player
+    -currentTurn: []
     -endGame: boolean
-    -listMoved: Move
+    -listMoved: String
+    
     +makeMove(player: Player, startCell: Cell, endCell: Cell): void
     +switchTurn(currentTurn: Player): void
     +isCheck(board: Board): boolean
@@ -32,6 +35,21 @@ class Cell {
     +isOccupied(): boolean
     +getRow(): int
     +getColumn() : String
+}
+
+class Player {
+    -name: String
+    -whiteSide: Boolean
+    -game: Game
+    
+    +PlayerBase(name: String, whiteSide: Boolean)
+    +isWhiteSide(): Boolean
+    +joinGame(game: Game): void
+    +createRoom(): Game
+    +startGame(): void
+    +resign(): void
+    +makeDraw(): void
+    +sendMessage(message: String): void
 }
 
 abstract class PlayerBase {
@@ -55,14 +73,6 @@ abstract class PieceBase {
 
     +findValidMove(cell: Cell): void
     +isWhitePiece(): Boolean
-}
-
-class Move {
-    -playerMakeMove : Player
-    -startCell : Cell 
-    -endCell : Cell
-
-    +isValidMove(): Boolean
 }
 
 class Pawn{
@@ -102,17 +112,25 @@ class King{
     +isWhitePiece(): boolean
 }
 
-PlayerBase --> Game
+Player --> Game
+PlayerBase <|-- Player
+
 Cell --> Board
-Cell -->PieceBase
 Board --> Game
-Game --> Move
-PieceBase <|-- Pawn
-PieceBase <|-- Rook
-PieceBase <|-- Knight
-PieceBase <|-- Bishop
-PieceBase <|-- Queen
-PieceBase <|-- King
+
+PieceBase <|-up- Pawn 
+PieceBase <|-up- Rook
+PieceBase <|-up- Knight
+PieceBase <|-up- Bishop
+PieceBase <|-up- Queen
+PieceBase <|-up- King
+
+Cell <-- Pawn
+Cell <-- Rook
+Cell <-- Knight
+Cell <-- Bishop
+Cell <-- Queen
+Cell <-- King
 @enduml
 
 
