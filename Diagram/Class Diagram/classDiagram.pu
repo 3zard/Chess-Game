@@ -9,15 +9,15 @@ class Board {
 
 
 class Game {
-    -player: []
+    -whitePlayer: player
+    -blackPlayer: player   
     -board: Board
-    -currentTurn: []
+    -isWhiteTurn: boolean 
     -endGame: boolean
     -listMoved: String
     
     +makeMove(player: Player, startCell: Cell, endCell: Cell): void
-    +switchTurn(currentTurn: Player): void
-    +isCheck(board: Board): boolean
+    +switchTurn(isWhiteTurn: boolean): void
     +isCheckMate(board: Board): boolean
     +isStealMate(board: Board): boolean
     +isDraw(board: Board): boolean
@@ -84,6 +84,7 @@ class Pawn{
 class Rook{
     -name: String
     -whitePiece: Boolean
+    -isCastelingMove: boolean
     +findValidMove(cell: Cell): void
     +isWhitePiece(): boolean
 }
@@ -108,7 +109,8 @@ class Queen{
 class King{
     -name: String
     -whitePiece: Boolean
-    +findValidMove(cell: Cell): void
+    -isCastelingMove: boolean
+    +findValidMove(cell: Cell): void 
     +isWhitePiece(): boolean
 }
 
@@ -132,5 +134,3 @@ Cell <-- Bishop
 Cell <-- Queen
 Cell <-- King
 @enduml
-
-
