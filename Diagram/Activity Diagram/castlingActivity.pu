@@ -1,0 +1,25 @@
+@startuml castling move activity
+|Player|
+start
+:Player chooses King piece;
+|Game|
+:System shows valid king move;
+if (Has the king moved?) then (yes)
+    :Player can't castle;
+else (no)
+    if (Has the rook moved?) then (yes)
+        :Player can't castle;
+    else (no)
+        if (Are squares between King and Rook empty?) then (yes)
+            if (Is the King in checkmate?) then (yes)
+                :Player can't castle;
+            else (no)
+                :Display valid castling moves;
+            endif
+        else (no)
+            :Player can't castle;
+        endif
+    endif
+endif
+stop
+@enduml
