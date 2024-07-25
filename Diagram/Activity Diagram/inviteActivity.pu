@@ -1,0 +1,16 @@
+@startuml
+|Player|
+start
+:Invite other player;
+if (That player is online?) then (yes)
+  :Request join room for that player;
+  if (Opponent Accepts?) then (yes)
+    :Notify that player join room;
+  else (no)
+    :Notify that player did not accept;
+  endif
+else (no)
+  :Notify that player is not online;
+endif
+stop
+@enduml

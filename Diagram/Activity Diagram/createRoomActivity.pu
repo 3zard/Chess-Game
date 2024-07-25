@@ -1,13 +1,18 @@
 @startuml
+|Player|
 start
 :Player chooses to create a room;
+|System|
 :Notify player that room is created;
+|Player|
 :Player invite others player by link join;
 :Player waits for others to join;
 if (Room has 2 players?) then (yes)
     :The creator click play game;
+    |System|
     :Game start;
 else (no)
+    |Player|
     :Continue wait;
 endif
 stop

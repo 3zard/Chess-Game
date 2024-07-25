@@ -1,9 +1,12 @@
 @startuml
+|Player|
 start
 :Opponent receive link join from others player;
 :Opponent click link;
-:Join Room;
+:Opponent join room;
+|System|
 :Notify room creator of new player;
+|Player|
 :Wait for game to start;
 stop
 @enduml
