@@ -1,0 +1,12 @@
+@startuml
+|Player|
+start
+:Player send request draw;
+|System|
+if (Request draw?) then (yes)
+:Both opponent draw;
+else 
+:Continue game;
+endif
+stop
+@enduml
