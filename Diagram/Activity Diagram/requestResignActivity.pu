@@ -1,0 +1,12 @@
+@startuml
+|Player|
+start
+:Player send request resign;
+|System|
+if (Request resign?) then (yes)
+:Win for opponent;
+else 
+:Continue game;
+endif
+stop
+@enduml

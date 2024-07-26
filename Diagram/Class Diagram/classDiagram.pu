@@ -42,7 +42,7 @@ class Player {
     -whiteSide: Boolean
     -game: Game
     
-    +PlayerBase(name: String, whiteSide: Boolean)
+    +Player(name: String, whiteSide: Boolean)
     +isWhiteSide(): Boolean
     +joinGame(game: Game): void
     +createRoom(): Game

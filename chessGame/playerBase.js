@@ -1,12 +1,18 @@
-class Player {
-    constructor(name, color ) {
+class PlayerBase {
+    constructor(name, whiteSide, game) {
         if (new.target === Player) {
             throw new Error("Cannot instantiate abstract class Player")
         }
         this.name = name
-        this.color = color
+        this.whiteSide = whiteSide
+        this.game = game
     }
-    makeMove(piece, position) {
-        
-    }
+    
+    isWhiteSide() {}
+    joinGame(game) {}
+    createRoom() {}
+    startGame() {}
+    resign() {}
+    makeDraw() {}
+    sendMessage(message) {}
 }

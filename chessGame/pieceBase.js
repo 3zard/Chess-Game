@@ -1,11 +1,11 @@
 class PieceBase {
-  constructor(name, color, position) {
+  constructor(name, whitePiece) {
     if (new.target === PieceBase) {
       throw new Error("Cannot instantiate abstract class PiecesBase");
     }
     this.name = name;
-    this.color = color;
-    this.position = position;
+    this.whitePiece = whitePiece;
   }
-  findPossibleMoves() {}
+  findPossibleMoves(cell) {}
+  isWhitePiece() {}
 }
