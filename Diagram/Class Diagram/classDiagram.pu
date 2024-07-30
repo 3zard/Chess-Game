@@ -68,49 +68,41 @@ abstract class PlayerBase {
 }
 
 abstract class PieceBase {
-    -name: String
     -whitePiece: boolean
-
-    +findValidMove(cell: Cell): void
-    +isWhitePiece(): Boolean
+    +findValidMove(cell: Cell): array
+    +isWhitePiece(): Boolean    
 }
 
 class Pawn{
-    -name: String
     -whitePiece: Boolean
-    +findValidMove(cell: Cell): void
+    +findValidMove(cell: Cell): array
     +isWhitePiece(): boolean
 } 
 class Rook{
-    -name: String
     -whitePiece: Boolean
     -isCastelingMove: boolean
-    +findValidMove(cell: Cell): void
+    +findValidMove(cell: Cell): array
     +isWhitePiece(): boolean
 }
 class Knight{
-    -name: String
     -whitePiece: Boolean
-    +findValidMove(cell: Cell): void
+    +findValidMove(cell: Cell): array
     +isWhitePiece(): boolean
 }
 class Bishop{
-    -name: String
     -whitePiece: Boolean
-    +findValidMove(cell: Cell): void
+    +findValidMove(cell: Cell): array
     +isWhitePiece(): boolean
 }
 class Queen{
-    -name: String
     -whitePiece: Boolean
-    +findValidMove(cell: Cell): void
+    +findValidMove(cell: Cell): array
     +isWhitePiece(): boolean
 }
 class King{
-    -name: String
     -whitePiece: Boolean
     -isCastelingMove: boolean
-    +findValidMove(cell: Cell): void 
+    +findValidMove(cell: Cell): array 
     +isWhitePiece(): boolean
 }
 
