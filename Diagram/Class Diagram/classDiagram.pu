@@ -1,66 +1,49 @@
 @startuml classDiagram
 class Board {
-    -cell: []
-    +initializeBoard(): Board
-    +resetBoard(): Board
-    +getCell(row: int, column: String): Cell
-    +setCell(piece: Piece, row: int, column: String): void
+    -cells:[][]
+    +initializeBoard(): void
+    +resetBoard(): void
+    +getCell(row: int, column: int): Cell
+    +setCell(piece: Piece, row: int, column: int): void
 }
-
-
+                                      
 class Game {
     -whitePlayer: player
     -blackPlayer: player   
     -board: Board
     -isWhiteTurn: boolean 
-    -endGame: boolean
-    -listMoved: String
-    
+    -isEndGame: boolean
+    -listMoved: Cell[]                             
+                               
     +makeMove(player: Player, startCell: Cell, endCell: Cell): void
-    +switchTurn(isWhiteTurn: boolean): void
-    +isCheckMate(board: Board): boolean
-    +isStealMate(board: Board): boolean
-    +isDraw(board: Board): boolean
-    +isEndGame(): boolean
+    +switchTurn(): void
+    +isCheckMate(): boolean
+    +checkStealMate(): boolean
+    +checkDraw(): boolean
+    +checkEndGame(): boolean
 }
 
 class Cell {
     -piece: Piece
-    -column: String 
-    -row: int
+    -columnOfCell: int 
+    -rowOfCell: int
 
-    +Cell(piece: Piece, row: int, column: String)
+    +Cell(piece: Piece, rowOfCell: int, columnOfCell: int)
     +getPiece(): Piece
     +setPiece(piece: Piece): void
     +isOccupied(): boolean
-    +getRow(): int
-    +getColumn() : String
+    +getRowOfCell(): int
+    +getColumnOfCell() : int
 }
 
 class Player {
     -name: String
-    -whiteSide: Boolean
-    -game: Game
+    -isWhiteSide: Boolean
     
-    +Player(name: String, whiteSide: Boolean)
-    +isWhiteSide(): Boolean
-    +joinGame(game: Game): void
-    +createRoom(): Game
-    +startGame(): void
-    +resign(): void
-    +makeDraw(): void
-    +sendMessage(message: String): void
-}
-
-abstract class PlayerBase {
-    -name: String
-    -whiteSide: Boolean
-    -game: Game
-    
-    +PlayerBase(name: String, whiteSide: Boolean)
-    +isWhiteSide(): Boolean
-    +joinGame(game: Game): void
-    +createRoom(): Game
+    +Player(name: String, isWhiteSide: Boolean)
+    +inviteGame(): void
+    +joinGame(): void
+    +createRoom(): void
     +startGame(): void
     +resign(): void
     +makeDraw(): void
@@ -68,46 +51,39 @@ abstract class PlayerBase {
 }
 
 abstract class PieceBase {
-    -whitePiece: boolean
-    +findValidMove(cell: Cell): array
-    +isWhitePiece(): Boolean    
+    -isWhitePiece: boolean
+    +findValidMove(currentCell: Cell, board: Board): Cell[]  
 }
 
-class Pawn{
-    -whitePiece: Boolean
-    +findValidMove(cell: Cell): array
-    +isWhitePiece(): boolean
+class Pawn {
+    -isWhitePiece: Boolean
+    +findValidMove(currentCell: Cell, board: Board): Cell[] 
 } 
-class Rook{
-    -whitePiece: Boolean
+
+class Rook {
+    -isWhitePiece: Boolean
     -isCastelingMove: boolean
-    +findValidMove(cell: Cell): array
-    +isWhitePiece(): boolean
+    +findValidMove(currentCell: Cell, board: Board): Cell[] 
 }
-class Knight{
-    -whitePiece: Boolean
-    +findValidMove(cell: Cell): array
-    +isWhitePiece(): boolean
+class Knight {
+    -isWhitePiece: Boolean
+    +findValidMove(currentCell: Cell, board: Board): Cell[] 
 }
-class Bishop{
-    -whitePiece: Boolean
-    +findValidMove(cell: Cell): array
-    +isWhitePiece(): boolean
+class Bishop {
+    -isWhitePiece: Boolean
+    +findValidMove(currentCell: Cell, board: Board): Cell[] 
 }
-class Queen{
-    -whitePiece: Boolean
-    +findValidMove(cell: Cell): array
-    +isWhitePiece(): boolean
+class Queen {
+    -isWhitePiece: Boolean
+    +findValidMove(currentCell: Cell, board: Board): Cell[] 
 }
-class King{
-    -whitePiece: Boolean
+class King {
+    -isWhitePiece: Boolean
     -isCastelingMove: boolean
-    +findValidMove(cell: Cell): array 
-    +isWhitePiece(): boolean
+    +findValidMove(currentCell: Cell, board: Board): Cell[]  
 }
 
 Player --> Game
-PlayerBase <|-- Player
 
 Cell --> Board
 Board --> Game
