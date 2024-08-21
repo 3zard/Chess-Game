@@ -13,5 +13,6 @@ if (Information valid?) then (Yes)
 else (No)
     :Display error message;
 endif
+
 stop
 @enduml
